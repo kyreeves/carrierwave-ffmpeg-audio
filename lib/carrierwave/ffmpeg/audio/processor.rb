@@ -8,20 +8,20 @@ module CarrierWave
         class RuntimeError < ::RuntimeError;end;
         class ArgumentError < ::ArgumentError;end;
 
-        WATERMARKED_FILE_PATH = "#{Rails.root}/db/watermark.mp3"
         BIT_RATE = "128k".freeze
         SAMPLE_RATE = "44100".freeze
 
         class << self
-          def convert(source)
+          def convert(source, options)
             final_filename = tmp_filename(source: source, format: "mp3")
             system "ffmpeg -i #{source} -c:a libmp3lame -ab #{BIT_RATE} -ar #{SAMPLE_RATE} #{final_filename}"
             final_filename
           end
 
-          def watermark(source)
+          def watermark(source, options)
             final_filename = tmp_filename(source: source, format: "mp3", prefix: "wtmk")
-            system "ffmpeg -i #{source} -i #{WATERMARKED_FILE_PATH} -filter_complex amerge -c:a libmp3lame -ab #{BIT_RATE} -ar #{SAMPLE_RATE} #{final_filename}"
+            watermark_file = options[:watermark]
+            system "ffmpeg -i #{source} -i #{watermark_file} -filter_complex amerge -c:a libmp3lame -ab #{BIT_RATE} -ar #{SAMPLE_RATE} #{final_filename}"
             final_filename
           end
 

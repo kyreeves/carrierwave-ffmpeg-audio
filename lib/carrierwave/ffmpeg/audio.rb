@@ -1,11 +1,12 @@
 require "carrierwave"
-require 'carrierwave/ffmpeg/audio/processor'
+require "carrierwave/ffmpeg/audio/version"
+require "carrierwave/ffmpeg/audio/processor"
 
 module CarrierWave
   module Ffmpeg
     module Audio
       extend ActiveSupport::Concern
-      
+
       module ClassMethods
         def convert options={}
           process convert: [ options ]

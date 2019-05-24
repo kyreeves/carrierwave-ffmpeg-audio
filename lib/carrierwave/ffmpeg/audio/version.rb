@@ -1,4 +1,4 @@
-module Carrierwave
+module CarrierWave
   module Ffmpeg
     module Audio
       VERSION = "0.1.0"

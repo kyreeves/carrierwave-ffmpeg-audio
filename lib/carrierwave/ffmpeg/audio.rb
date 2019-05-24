@@ -1,7 +1,7 @@
 require "carrierwave"
 require 'carrierwave/ffmpeg/audio/processor'
 
-module Carrierwave
+module CarrierWave
   module Ffmpeg
     module Audio
       module ClassMethods

@@ -5,7 +5,7 @@ require "carrierwave/ffmpeg/audio/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "carrierwave-ffmpeg-audio"
-  spec.version       = Carrierwave::Ffmpeg::Audio::VERSION
+  spec.version       = CarrierWave::Ffmpeg::Audio::VERSION
   spec.authors       = ["Kyle Reeves"]
   spec.email         = ["kyreeves@icloud.com"]
   spec.summary       = %q{CarrierWave FFMPEG Audio}

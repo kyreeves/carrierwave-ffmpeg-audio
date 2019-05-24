@@ -11,7 +11,7 @@ module CarrierWave
         def convert options={}
           process convert: [ options ]
         end
-  
+
         def watermark options={}
           process watermark: [ options ]
         end

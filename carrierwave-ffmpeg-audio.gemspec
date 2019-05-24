@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = CarrierWave::Ffmpeg::Audio::VERSION
   spec.authors       = ["Kyle Reeves"]
   spec.email         = ["kyreeves@icloud.com"]
-  spec.summary       = %q{CarrierWave FFMPEG Audio}
+  spec.summary       = %q{CarrierWave Audio Conversion}
   spec.description   = %q{FFMPEG wrapper for CarrierWave uploader that allows audio file conversion and watermarking}
   spec.homepage      = "https://github.com/kyreeves/carrierwave-ffmpeg-audio"
   spec.license       = "MIT"

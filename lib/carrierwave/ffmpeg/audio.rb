@@ -4,9 +4,9 @@ require 'carrierwave/ffmpeg/audio/processor'
 module CarrierWave
   module Ffmpeg
     module Audio
+      extend ActiveSupport::Concern
+      
       module ClassMethods
-        extend ActiveSupport::Concern
-  
         def convert options={}
           process convert: [ options ]
         end

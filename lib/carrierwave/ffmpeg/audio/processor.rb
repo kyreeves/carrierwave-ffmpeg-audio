@@ -17,7 +17,7 @@ module CarrierWave
           def convert(source, options)
             options = DefaultOptions.merge(options)
             final_filename = tmp_filename(source: source, format: "mp3")
-            system "ffmpeg -i #{source} -c:a libmp3lame -ab #{options[:bit_rate]} -ar #{options[:sample_rate]} #{final_filename}"
+            system "ffmpeg -loglevel fatal -i #{source} -c:a libmp3lame -ab #{options[:bit_rate]} -ar #{options[:sample_rate]} #{final_filename}"
             final_filename
           end
 
@@ -29,7 +29,7 @@ module CarrierWave
             raise RuntimeError.new("Watermark file '#{watermark_file_path}' not found.") unless File.exist?(watermark_file_path)
 
             final_filename = tmp_filename(source: source, format: "mp3", prefix: "wtmk")
-            system "ffmpeg -i #{source} -i #{watermark_file_path} -filter_complex amerge -c:a libmp3lame -ab #{options[:bit_rate]} -ar #{options[:sample_rate]} #{final_filename}"
+            system "ffmpeg -loglevel fatal -i #{source} -i #{watermark_file_path} -filter_complex amerge -c:a libmp3lame -ab #{options[:bit_rate]} -ar #{options[:sample_rate]} #{final_filename}"
 
             final_filename
           end
